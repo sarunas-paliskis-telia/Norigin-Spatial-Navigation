@@ -948,6 +948,7 @@ class SpatialNavigationService {
         };
         if (currentFocusedComponent && currentFocusedComponent.onArrowPress) {
           currentFocusedComponent.onArrowPress(direction, keyPressDetails);
+          return;
         }
       }
       this.smartNavigate(direction, null, focusDetails);
