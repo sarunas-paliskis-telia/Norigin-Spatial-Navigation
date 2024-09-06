@@ -940,6 +940,16 @@ class SpatialNavigationService {
 
     if (validDirections.includes(direction)) {
       this.log('navigateByDirection', 'direction', direction);
+
+      if (focusDetails.event) {
+        const currentFocusedComponent = this.focusableComponents[this.focusKey];
+        const keyPressDetails = {
+          pressedKeys: this.pressedKeys
+        };
+        if (currentFocusedComponent && currentFocusedComponent.onArrowPress) {
+          currentFocusedComponent.onArrowPress(direction, keyPressDetails);
+        }
+      }
       this.smartNavigate(direction, null, focusDetails);
     } else {
       this.log(
