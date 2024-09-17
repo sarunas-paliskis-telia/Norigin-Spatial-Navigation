@@ -640,6 +640,8 @@ class SpatialNavigationService {
     this.destroy = this.destroy.bind(this);
     this.setKeyMap = this.setKeyMap.bind(this);
     this.getCurrentFocusKey = this.getCurrentFocusKey.bind(this);
+    this.getCurrentlyFocusedComponent =
+      this.getCurrentlyFocusedComponent.bind(this);
     this.doesFocusableExist = this.doesFocusableExist.bind(this);
 
     this.setFocusDebounced = debounce(this.setFocus, AUTO_RESTORE_FOCUS_DELAY, {
@@ -1152,6 +1154,13 @@ class SpatialNavigationService {
    */
   getCurrentFocusKey(): string {
     return this.focusKey;
+  }
+
+  /**
+   * Returns the currently focused component
+   */
+  getCurrentlyFocusedComponent(): FocusableComponent {
+    return this.focusableComponents[this.focusKey];
   }
 
   /**
@@ -1737,5 +1746,6 @@ export const {
   resume,
   updateAllLayouts,
   getCurrentFocusKey,
+  getCurrentlyFocusedComponent,
   doesFocusableExist
 } = SpatialNavigation;
