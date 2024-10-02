@@ -766,6 +766,8 @@ class SpatialNavigationService {
 
         const keyCode = SpatialNavigationService.getKeyCode(event);
         const eventType = this.getEventType(keyCode);
+        console.log('keyCode', keyCode);
+        console.log('eventType', eventType);
 
         if (!eventType) {
           return;
