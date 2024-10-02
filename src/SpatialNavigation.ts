@@ -131,7 +131,7 @@ export type PressedKeys = { [index: string]: number };
  */
 export interface KeyPressDetails {
   pressedKeys: PressedKeys;
-  keyCode?: number;
+  keyCode?: number | string;
 }
 
 /**
