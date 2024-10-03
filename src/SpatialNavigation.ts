@@ -131,7 +131,6 @@ export type PressedKeys = { [index: string]: number };
  */
 export interface KeyPressDetails {
   pressedKeys: PressedKeys;
-  keyCode?: number | string;
 }
 
 /**
@@ -783,7 +782,6 @@ class SpatialNavigationService {
 
         const keysDetails = {
           pressedKeys: this.pressedKeys,
-          keyCode,
         };
 
         if (eventType === KEY_ENTER && this.focusKey) {
@@ -905,7 +903,6 @@ class SpatialNavigationService {
   }
 
   onArrowPress(direction: string, keysDetails: KeyPressDetails) {
-    console.log('keysDetails', keysDetails);
     const component = this.focusableComponents[this.focusKey];
 
     /* Guard against last-focused component being unmounted at time of onArrowPress (e.g due to UI fading out) */
